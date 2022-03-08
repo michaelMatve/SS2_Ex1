@@ -2,5 +2,5 @@
 #include <string>
 
 namespace ariel{
-    std::string mat(int length , int weight, char firest_simbol, char second_simbol);
+    std::string mat(int weight , int length, char firest_simbol, char second_simbol);
 }

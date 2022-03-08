@@ -51,24 +51,22 @@ TEST_CASE("Good input") {
 													 "$+$\n"
 													 "$+$\n\n"
 													 "$+$\n\n"
-													 "$+$\n\n"
-													 "$+$\n\n"
 													 "$$$"));
 
                                                      
     CHECK(nospaces(mat(1, 1, '#', '-')) == nospaces("#"));
     
     CHECK(nospaces(mat(3, 3, '@', '*')) == nospaces("@@@\n"
-                                                     "@+@\n"
+                                                     "@*@\n"
                                                      "@@@"));
 
     CHECK(nospaces(mat(5, 5, '&', '^')) == nospaces("&&&&&\n"
                                                      "&^^^&\n"
                                                      "&^&^&\n"
-                                                     "$^^^$\n"
-                                                     "$$$$$"));
+                                                     "&^^^&\n"
+                                                     "&&&&&"));
     
-    CHECK(nospaces(mat(9, 11, '+', '^')) == nospaces("+++++++++++\n"
+    CHECK(nospaces(mat(11, 9, '+', '^')) == nospaces("+++++++++++\n"
                                                      "+^^^^^^^^^+\n"
                                                      "+^+++++++^+\n"
                                                      "+^+^^^^^+^+\n"
@@ -78,23 +76,23 @@ TEST_CASE("Good input") {
                                                      "+^^^^^^^^^+\n"
                                                      "+++++++++++"));
 
-    CHECK(nospaces(mat(1, 11, '+', '^')) == nospaces("+++++++++++")); 
+    CHECK(nospaces(mat(11, 1, '+', '^')) == nospaces("+++++++++++")); 
 
-    CHECK(nospaces(mat(1, 3, '%', '^')) == nospaces("%%%")); 
+    CHECK(nospaces(mat(3, 1, '$', '^')) == nospaces("$$$")); 
 
-    CHECK(nospaces(mat(9, 1, '+', '^')) == nospaces("+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+\n"
-                                                     "+"));
+    CHECK(nospaces(mat(1, 9, '^', '&')) == nospaces("^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^\n"
+                                                     "^"));
 
-    CHECK(nospaces(mat(3, 1, '%', '^')) == nospaces("%\n"
-                                                     "%\n"
-                                                     "%"));
+    CHECK(nospaces(mat(1, 3, '#', '^')) == nospaces("#\n"
+                                                     "#\n"
+                                                     "#"));
 
 }
 
