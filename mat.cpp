@@ -2,10 +2,15 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace ariel{
         std::string mat(int weight, int length, char firest_simbol, char second_simbol){
         
+        if(length<=0 || weight<=0)
+        {
+             throw std::invalid_argument("bad input cant get negetive");
+        }
         if(length%2 == 0)
         {
             throw std::invalid_argument("bad input can get only odd");
@@ -25,9 +30,10 @@ namespace ariel{
         {
             throw std::invalid_argument("bad input for simbol B");
         }
-        char matrix[length][weight];
+        std::vector<std::vector<char>>matrix(length,std::vector(weight,'t'));
+
         char simbol = firest_simbol;
-        for(int count=0; (count<length+1/2) && (count<weight+1/2); count++)
+        for(int count=0; (count<(length+1)/2) && (count<(weight+1)/2); count++)
         {
             if(count%2 == 0)
             {
@@ -58,14 +64,14 @@ namespace ariel{
                 matrix[row][weight-1-count] = simbol;
             }
         }
-        std::string st = "";
+        std::string st;
         for(int row=0 ; row < length ; row++)
         {
             for(int coulm = 0 ; coulm < weight; coulm++)
             {
-                st = st +matrix[row][coulm];
+                st += matrix[row][coulm];
             }
-            st = st + "\n";
+            st += "\n";
         }
         return st;
     }
