@@ -30,7 +30,7 @@ namespace ariel{
         {
             throw std::invalid_argument("bad input for simbol B");
         }
-        std::vector<std::vector<char>>matrix(length,std::vector(weight,'t'));
+        std::vector<std::vector<char>>matrix(length,std::vector<char>(weight));
 
         char simbol = firest_simbol;
         for(int count=0; (count<(length+1)/2) && (count<(weight+1)/2); count++)
